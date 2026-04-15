@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Women Group — Empowerment & Sustainability</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Modern, clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo/IMG-20231231-WA0104(1)~2.avif">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1e1e2a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes slideInFromLeft {
+            0% { opacity: 0; transform: translateX(-30px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInFromRight {
+            0% { opacity: 0; transform: translateX(30px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Fade-in on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== BANNER SLIDER ===== */
+        .banner-slider {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 0 0 60px 60px;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.6s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 74, 62, 0.7) 0%, rgba(11, 46, 38, 0.4) 100%);
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        .slide-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .slider-dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.2);
+        }
+
+        .slider-dot.active {
+            background: white;
+            width: 30px;
+            border-radius: 6px;
+            border-color: #e8a34b;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .slider-arrow:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-arrow.prev {
+            left: 30px;
+        }
+
+        .slider-arrow.next {
+            right: 30px;
+        }
+
+        /* Buttons & Links */
+        .btn {
+            display: inline-block;
+            background-color: #0f4a3e;
+            color: white;
+            font-weight: 600;
+            padding: 0.9rem 2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid #0f4a3e;
+            box-shadow: 0 8px 16px rgba(15, 74, 62, 0.1);
+            letter-spacing: 0.3px;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: #0f4a3e;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(15, 74, 62, 0.15);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #0f4a3e;
+            border: 2px solid #0f4a3e;
+        }
+
+        .btn-outline:hover {
+            background-color: #0f4a3e;
+            color: white;
+        }
+
+        .btn-light {
+            background-color: white;
+            color: #0f4a3e;
+            border: 2px solid white;
+        }
+
+        .btn-light:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        /* Header / Nav */
+        header {
+            padding: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(14px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 24px rgba(15, 74, 62, 0.08);
+            border-bottom: 1px solid rgba(15, 74, 62, 0.06);
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 82px;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0f4a3e;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #0f4a3e;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .nav-links a {
+            position: relative;
+            text-decoration: none;
+            color: #2c3e50;
+            transition: color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+            padding: 0.8rem 1rem;
+            border-radius: 999px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            bottom: 0.45rem;
+            height: 2px;
+            border-radius: 999px;
+            background: #e8a34b;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #0f4a3e;
+            transform: translateY(-1px);
+            background: rgba(15, 74, 62, 0.06);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: scaleX(1);
+        }
+
+        /* Image Gallery Sections */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(15, 74, 62, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 1.5rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Feature Images with Text */
+        .feature-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 5rem 0;
+        }
+
+        .feature-image {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .feature-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .feature-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 3px solid #e8a34b;
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Section titles */
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0b2e26;
+        }
+
+        .section-subtitle {
+            color: #5a6a72;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+        }
+
+        /* Cards grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.2rem 1.8rem;
+            border-radius: 28px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.02);
+            border: 1px solid #edf2f7;
+            transition: all 0.25s;
+        }
+
+        .project-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            min-height: 300px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
+            display: flex;
+        }
+
+        .project-slide {
+            flex: 1;
+            position: relative;
+            opacity: 1;
+            transition: opacity 1.2s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+        }
+
+        .project-slide.hidden {
+            opacity: 0;
+            pointer-events: none;
+            flex: 0;
+            min-width: 0;
+            display: none;
+        }
+
+        .project-slide:nth-child(2),
+        .project-slide:nth-child(5) {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .project-slide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(15, 74, 62, 0.65));
+        }
+
+        .project-slide-content {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            padding: 2rem;
+            color: white;
+            text-align: left;
+        }
+
+        .project-slide-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.1;
+        }
+
+        .project-tag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.18);
+            color: #f6d7a5;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .project-slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .project-dot.active {
+            width: 20px;
+            background: white;
+        }
+
+        .project-slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f4a3e;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            border: 2px solid rgba(15, 74, 62, 0.3);
+        }
+
+        .project-slider-arrow:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .project-slider-arrow.prev {
+            left: 20px;
+        }
+
+        .project-slider-arrow.next {
+            right: 20px;
+        }
+
+        @media (min-width: 769px) {
+            .project-dot:nth-child(n+3) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-slider {
+                display: block;
+            }
+            .project-slide {
+                position: absolute;
+                inset: 0;
+                flex: none;
+                opacity: 0;
+            }
+            .project-slide.hidden {
+                opacity: 0;
+                display: none;
+            }
+            .project-slide:not(.hidden) {
+                opacity: 1;
+            }
+            .project-slide-content {
+                padding: 2rem;
+                text-align: center;
+            }
+
+            .project-slide-content h3 {
+                font-size: 2rem;
+            }
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px rgba(15, 74, 62, 0.06);
+            border-color: #cbdde0;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: #0f4a3e;
+            margin-bottom: 1.8rem;
+        }
+
+        /* Mission/Vision */
+        .mission-vision {
+            background: #f9fbf9;
+            border-radius: 60px;
+            padding: 3.5rem;
+            margin: 4rem 0;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        /* Impact Stats with Images */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #edf2f7;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(15, 74, 62, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0f4a3e;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #5a6a72;
+            font-weight: 500;
+        }
+
+        /* Team Section with Image */
+        .team-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 5rem 0;
+        }
+
+        .team-image {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 2rem;
+        }
+
+        .team-card {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 30px;
+            border: 1px solid #eef3f0;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .team-img {
+            width: 120px;
+            height: 120px;
+            background: #d9e8df;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f4a3e;
+            font-size: 3rem;
+            font-weight: 300;
+            border: 4px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Contact Section with Background Image */
+        .contact-section {
+            background: linear-gradient(135deg, #0f4a3e 0%, #1a6b5a 100%);
+            color: white;
+            border-radius: 50px;
+            padding: 3.5rem;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+        .contact-section .btn {
+            background: white;
+            color: #0f4a3e;
+            border: none;
+        }
+
+        .contact-section .fa-envelope-open-text {
+            color: #e8a34b;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section .fa-map-pin,
+        .contact-section .fa-phone {
+            color: #0f4a3e;
+            margin-right: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2.8rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg, #0f4a3e 0%, #1a6b5a 100%);
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.88) !important;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        footer a:hover {
+            color: #f6d7a5 !important;
+            transform: translateY(-2px);
+        }
+
+        footer .fa-facebook {
+            color: #1877f2;
+        }
+
+        footer .fa-instagram {
+            color: #e4405f;
+        }
+
+        footer .fa-whatsapp {
+            color: #25d366;
+        }
+
+        footer .fa-linkedin {
+            color: #0077b5;
+        }
+
+        footer a i {
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        footer a:hover i {
+            color: #e8a34b;
+            transform: scale(1.1);
+        }
+
+        .footer-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-text {
+                display: none;
+            }
+            .nav-links {
+                display: none;
+            }
+            .banner-slider {
+                height: 400px;
+            }
+            .slide-content h2 {
+                font-size: 2rem;
+            }
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+            .feature-block {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .impact-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .team-section {
+                grid-template-columns: 1fr;
+            }
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+            .mission-vision, .contact-section {
+                padding: 2rem;
+            }
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                display: none;
+                z-index: 10;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .contact-section > div:first-child {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            .contact-section .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .contact-section > div > div:last-child {
+                width: 100%;
+                max-width: 100%;
+                padding: 1.5rem;
+            }
+            .contact-section > div > div:last-child p:nth-child(2) {
+                font-size: 0.9rem;
+                word-break: break-word;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-bar">
+        <a href="index.html" class="logo-link"><img src="images/logo/IMG-20231231-WA0104(1)~2.avif" alt="Great Women Group" class="logo-img"><span class="logo-text">Great Women Group</span></a>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="#programs">Programs</a>
+            <a href="#about">About</a>
+            <a href="#impact">Impact</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</header>
+
+<!-- Modern Auto Banner Slider -->
+<div class="banner-slider">
+    <div class="slider-container">
+        <div class="slide active" style="background-image: url('images/banner/e.jpeg');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h2>Empowering Women, Transforming Communities</h2>
+                <p>Join our mission to create sustainable change through education, skills, and economic empowerment</p>
+                <a href="#programs" class="btn btn-light">Discover Our Programs</a>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide" style="background-image: url('images/banner/agrifood.jpeg');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h2>Sustainable Agriculture & Food Security</h2>
+                <p>Training women in modern farming techniques to build resilient communities</p>
+                <a href="#programs" class="btn btn-light">Learn More</a>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide" style="background-image: url('images/banner/women-1.jpg');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h2>Skills Training & Entrepreneurship</h2>
+                <p>Equipping women with vocational skills and business acumen for self-reliance</p>
+                <a href="#programs" class="btn btn-light">Explore Training</a>
+            </div>
+        </div>
+        
+        <!-- Slide 4 -->
+        <div class="slide" style="background-image: url('images/banner/WSEI group picture.jpg');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h2>Health, Rights & Community Support</h2>
+                <p>Promoting wellness, rights awareness, and mutual support systems</p>
+                <a href="#programs" class="btn btn-light">Get Involved</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slider Navigation Arrows -->
+    <div class="slider-arrow prev" onclick="changeSlide(-1)">
+        <i class="fas fa-chevron-left"></i>
+    </div>
+    <div class="slider-arrow next" onclick="changeSlide(1)">
+        <i class="fas fa-chevron-right"></i>
+    </div>
+    
+    <!-- Slider Dots -->
+    <div class="slider-nav">
+        <div class="slider-dot active" onclick="goToSlide(0)"></div>
+        <div class="slider-dot" onclick="goToSlide(1)"></div>
+        <div class="slider-dot" onclick="goToSlide(2)"></div>
+        <div class="slider-dot" onclick="goToSlide(3)"></div>
+    </div>
+</div>
+
+<main>
+    <div class="container">
+        <!-- Hero Section with Image -->
+        <section class="feature-block">
+            <div class="fade-in-section">
+                <h1 style="font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem; color: #0b2e26;">Empowering women, <br>sustaining communities.</h1>
+                <p style="font-size: 1.2rem; color: #4a5568; margin-bottom: 2rem;">We offer social, economic, humanitarian and environmental services — the pillars of sustainability for a great woman in the community. Through knowledge, skills, and advocacy we reduce poverty and build self-sustaining communities.</p>
+                <a href="#contact" class="btn">Join our mission <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+                <a href="#programs" class="btn btn-outline" style="margin-left: 16px;">Our programs</a>
+            </div>
+            <div class="feature-image fade-in-section">
+                <img src="images/WhatsApp Image 2026-04-08 at 17.30.28 (3).jpeg" alt="Women empowerment group meeting">
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <div class="fade-in-section">
+            <h2 class="section-title">Our focus areas</h2>
+            <p class="section-subtitle">Moments of transformation and empowerment</p>
+        </div>
+        <div class="image-gallery">
+            <div class="gallery-item fade-in-section">
+                <img src="images/WhatsApp Image 2026-04-08 at 17.30.28.jpeg" alt="Women in agriculture">
+                <div class="gallery-overlay">
+                    <h4>Sustainable Farming</h4>
+                    <p>Training women in modern agricultural practices</p>
+                </div>
+            </div>
+            <div class="gallery-item fade-in-section">
+                <img src="images/WhatsApp Image 2026-04-08 at 17.30.28 (1).jpeg" alt="Skills training workshop">
+                <div class="gallery-overlay">
+                    <h4>Skills Development</h4>
+                    <p>Vocational training for economic independence</p>
+                </div>
+            </div>
+            <div class="gallery-item fade-in-section">
+                <img src="images/WhatsApp Image 2026-04-09 at 07.00.24 (1).jpeg" alt="Community meeting">
+                <div class="gallery-overlay">
+                    <h4>Community Engagement</h4>
+                    <p>Building strong support networks</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services / Focus Areas -->
+        <section id="programs" style="margin: 6rem 0;">
+            <div class="fade-in-section">
+                <h2 class="section-title"></h2>
+                <p class="section-subtitle"></p>
+            </div>
+            <div class="grid-3">
+                <div class="service-card fade-in-section">
+                    <div class="service-icon"><i class="fas fa-piggy-bank"></i></div>
+                    <h3>Finance & Capital</h3>
+                    <p>Lobby for startup capital, pool resource center, and access to funding beyond savings. Group savings and loaning schemes.</p>
+                </div>
+                <div class="service-card fade-in-section">
+                    <div class="service-icon"><i class="fas fa-tractor"></i></div>
+                    <h3>Agribusiness</h3>
+                    <p>Poultry, apiary, animal husbandry, vegetable farming, fish farming, and cash crops. Training on improved methods and seedlings.</p>
+                </div>
+                <div class="service-card fade-in-section">
+                    <div class="service-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Skills & Industries</h3>
+                    <p>Tailoring, handcraft, salon, hairdressing, weaving, and value‑added product development. Tourism and cultural artisans.</p>
+                </div>
+                <div class="service-card fade-in-section">
+                    <div class="service-icon"><i class="fas fa-tree"></i></div>
+                    <h3>Environment & Conservation</h3>
+                    <p>Tree planting, soil conservation, and environmental protection as a pillar of agricultural development.</p>
+                </div>
+                <div class="service-card fade-in-section">
+                    <div class="service-icon"><i class="fas fa-shield-virus"></i></div>
+                    <h3>Health & Rights</h3>
+                    <p>Sensitization on domestic violence, HIV/AIDS, COVID-19 prevention, and community-based support systems.</p>
+                </div>
+                <div class="service-card fade-in-section">
+                    <div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Mutual Support</h3>
+                    <p>Scheme for supporting members during bereavement or loss. Partnering with government agencies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GWIBB Projects -->
+        <section class="project-section" id="projects" style="margin: 6rem 0;">
+            <div class="fade-in-section">
+                <h2 class="section-title">Our Projects</h2>
+                <p class="section-subtitle">Our flagship initiatives deliver food, farming support, outreach, and mentorship across communities.</p>
+            </div>
+            <div class="project-slider fade-in-section">
+                <div class="project-slide active" style="background-image: url('images/WhatsApp Image 2026-04-08 at 17.29.49.jpeg');">
+                    <div class="project-slide-overlay"></div>
+                    <div class="project-slide-content">
+                        <span class="project-tag">Feed My People</span>
+                        <h3>Feed My People</h3>
+                        <p>We deliver food to impoverished communities during festival seasons and share meals together as one family.</p>
+                    </div>
+                </div>
+                <div class="project-slide" style="background-image: url('images/WhatsApp Image 2026-04-08 at 17.30.28.jpeg');">
+                    <div class="project-slide-overlay"></div>
+                    <div class="project-slide-content">
+                        <span class="project-tag">My Community Matters</span>
+                        <h3>My Community Matters</h3>
+                        <p>We support farmers and aspiring growers with livestock, seeds, training, and start-up resources for sustainable farms.</p>
+                    </div>
+                </div>
+                <div class="project-slide" style="background-image: url('images/WhatsApp\ Image\ 2026-04-09\ at\ 07.00.25.jpeg');">
+                    <div class="project-slide-overlay"></div>
+                    <div class="project-slide-content">
+                        <span class="project-tag">Care & Advocacy</span>
+                        <h3>Care & Advocacy</h3>
+                        <p>We provide door-to-door evangelism, support elderly and disabled community members, and award bursaries to students who cannot afford school fees.</p>
+                    </div>
+                </div>
+                <div class="project-slide" style="background-image: url('images/WhatsApp\ Image\ 2026-04-09\ at\ 07.00.22.jpeg');">
+                    <div class="project-slide-overlay"></div>
+                    <div class="project-slide-content">
+                        <span class="project-tag">Rebuilders of the Cities</span>
+                        <h3>Rebuilders of the Cities</h3>
+                        <p>We organize mission trips to cities across Africa and beyond, bringing hope, practical service, and community transformation.</p>
+                    </div>
+                </div>
+                <div class="project-slide hidden" style="background-image: url('images/WhatsApp Image 2026-04-08 at 17.30.28 (1).jpeg');">
+                    <div class="project-slide-overlay"></div>
+                    <div class="project-slide-content">
+                        <span class="project-tag">Youth Mentorship</span>
+                        <h3>Youth Mentorship</h3>
+                        <p>We run mentorship programs and counseling for young people, helping them build confidence, purpose, and direction.</p>
+                    </div>
+                </div>
+                <div class="project-slide hidden" style="background-image: url('images/WhatsApp Image 2026-04-08 at 17.30.28 (2).jpeg');">
+                    <div class="project-slide-overlay"></div>
+                    <div class="project-slide-content">
+                        <span class="project-tag">Community Fellowship</span>
+                        <h3>Community Fellowship</h3>
+                        <p>We encourage togetherness through shared meals, events, and activities that strengthen families and neighbours.</p>
+                    </div>
+                </div>
+                <div class="project-slider-arrow prev" onclick="changeProjectSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="project-slider-arrow next" onclick="changeProjectSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            <div class="project-slider-dots fade-in-section">
+                <button class="project-dot active" onclick="goToProjectSlide(0)"></button>
+                <button class="project-dot" onclick="goToProjectSlide(1)"></button>
+                <button class="project-dot" onclick="goToProjectSlide(2)"></button>
+                <button class="project-dot" onclick="goToProjectSlide(3)"></button>
+                <button class="project-dot" onclick="goToProjectSlide(4)"></button>
+                <button class="project-dot" onclick="goToProjectSlide(5)"></button>
+            </div>
+        </section>
+
+        <!-- Impact Statistics -->
+         <div class="fade-in-section">
+            <h2 class="section-title">Our Impact stories</h2>
+            <p class="section-subtitle"></p>
+        </div>
+        <div id="impact" class="impact-stats">
+            <div class="stat-card fade-in-section">
+                <div class="stat-number">1,200+</div>
+                <div class="stat-label">Women Empowered</div>
+            </div>
+            <div class="stat-card fade-in-section">
+                <div class="stat-number">45</div>
+                <div class="stat-label">Active Groups</div>
+            </div>
+            <div class="stat-card fade-in-section">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Communities Served</div>
+            </div>
+            <div class="stat-card fade-in-section">
+                <div class="stat-number">89%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+        </div>
+
+        
+
+        <!-- Feature Block with Image - Why Women First -->
+        <section class="feature-block">
+            <div class="feature-image fade-in-section">
+                <img src="images/WhatsApp Image 2026-04-09 at 07.00.23 (3).jpeg" alt="Women entrepreneurs working together">
+            </div>
+            <div class="fade-in-section">
+                <h2 class="section-title">Why Women First?</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #4a5568;">As the founder, I am a woman — and women play a major role in the community, yet many lack connections to launch or sustain their projects.</p>
+                <div style="background: #f9fbf9; border-radius: 20px; padding: 1.5rem; border-left: 4px solid #e8a34b;">
+                    <p style="font-style: italic;"><i class="fas fa-quote-left" style="color: #e8a34b; margin-right: 8px;"></i> We understand the challenging circumstances: inadequate services, illiteracy, poverty. Through knowledge, skills, and advocacy we can reduce poverty.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission/Vision with Background Pattern -->
+        <div class="mission-vision fade-in-section">
+            <div class="mv-grid">
+                <div>
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: #0f4a3e;">Our Guiding Principles</h3>
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #e8a34b; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Vision</h4>
+                        <p style="font-size: 1.3rem; font-weight: 500;">To be a leading self-reliant people, capable of affording basic needs and free from poverty, with improved standards of living.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #e8a34b; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Mission</h4>
+                        <p style="font-size: 1.3rem; font-weight: 500;">To empower women with the means to achieve middle-income status and enable them become self‑reliant both socially and economically.</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <img src="images/WhatsApp Image 2026-04-11 at 05.57.20.jpeg" alt="Community gathering" style="width: 100%; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <section id="about" class="team-section">
+            <div class="team-image fade-in-section">
+                <img src="images/WhatsApp Image 2026-04-09 at 07.00.24 (4).jpeg" alt="Kim Clementine U Asiimwe">
+            </div>
+            <div class="team-info fade-in-section">
+                <h2 class="section-title">Meet Our Founder</h2>
+                <div class="team-card">
+                    <div class="team-img">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3 style="font-size: 1.8rem;">Kim Clementine U Asiimwe</h3>
+                    <p style="color: #0f4a3e; font-weight: 500; margin-bottom: 1rem;">Founder & Director</p>
+                    <p style="margin-top: 1rem; color: #4a5e55; font-size: 1.1rem;">"Empower a woman, sustain a generation. Together we build resilient communities through knowledge, skills, and mutual support."</p>
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+                        <a href="#" style="color: #0f4a3e;"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" style="color: #0f4a3e;"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" style="color: #0f4a3e;"><i class="fab fa-facebook fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section fade-in-section">
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between; position: relative; z-index: 2;">
+                <div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Join Our Movement</h2>
+                    <p style="font-size: 1.2rem; opacity: 0.95; max-width: 550px; margin-bottom: 2rem;">Great Women Group offers opportunities to individuals who need support. Get in touch to learn more about our programs and how you can contribute.</p>
+                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                        <a href="https://wa.me/256700123456" class="btn"><i class="fab fa-whatsapp" style="margin-right: 8px;" target="blank"></i> Chat on WhatsApp</a>
+                        <a href="#" class="btn btn-outline" style="background: transparent; color: white; border-color: white;">Send Message</a>
+                    </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2);">
+                    <i class="fas fa-envelope-open-text" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <p style="font-weight: 600; font-size: 1.1rem;"><a href="mailto:greatwomengroup@community.org" style="color: inherit; text-decoration: none;">greatwomengroup@community.org</a></p>
+                    <p style="margin-top: 1rem;"><i class="fas fa-map-pin"></i> Kampala, Uganda</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+256700123456" style="color: inherit; text-decoration: none;">+256 700 123 456</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container footer-flex">
+        <div>&copy; <span id="current-year"></span> Great Women Group. Developed by Gidex Tech.</div>
+        <div style="display: flex; gap: 20px;">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Banner Slider Functionality
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    let slideInterval;
+
+    function showSlide(index) {
+        // Handle index boundaries
+        if (index >= slides.length) currentSlide = 0;
+        else if (index < 0) currentSlide = slides.length - 1;
+        else currentSlide = index;
+        
+        // Update slides
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === currentSlide) {
+                slide.classList.add('active');
+                // Reset animation on content
+                const content = slide.querySelector('.slide-content');
+                content.style.animation = 'none';
+                setTimeout(() => {
+                    content.style.animation = 'slideInFromLeft 1s ease-out';
+                }, 10);
+            }
+        });
+        
+        // Update dots
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
+    }
+
+    function changeSlide(direction) {
+        clearInterval(slideInterval);
+        showSlide(currentSlide + direction);
+        startAutoSlide();
+    }
+
+    function goToSlide(index) {
+        clearInterval(slideInterval);
+        showSlide(index);
+        startAutoSlide();
+    }
+
+    function startAutoSlide() {
+        slideInterval = setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 7000); // Change slide every 7 seconds for a smoother pace
+    }
+
+    // Project slider functionality
+    let currentProjectSlide = 0;
+    const projectSlides = document.querySelectorAll('.project-slide');
+    const projectDots = document.querySelectorAll('.project-dot');
+    let projectSlideInterval;
+
+    function showProjectSlide(index) {
+        const isMobile = window.innerWidth <= 768;
+        const slidesToShow = isMobile ? 1 : 3;
+        const maxIndex = isMobile ? projectSlides.length - 1 : projectSlides.length - 3;
+
+        if (index > maxIndex) currentProjectSlide = 0;
+        else if (index < 0) currentProjectSlide = maxIndex;
+        else currentProjectSlide = index;
+
+        projectSlides.forEach((slide, i) => {
+            const shouldShow = i >= currentProjectSlide && i < currentProjectSlide + slidesToShow;
+            slide.classList.toggle('hidden', !shouldShow);
+        });
+
+        const dotIndex = isMobile ? currentProjectSlide : Math.floor(currentProjectSlide / 3);
+        projectDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === dotIndex);
+        });
+    }
+
+    function goToProjectSlide(index) {
+        clearInterval(projectSlideInterval);
+        showProjectSlide(index);
+        startProjectAutoSlide();
+    }
+
+    function changeProjectSlide(direction) {
+        clearInterval(projectSlideInterval);
+        const isMobile = window.innerWidth <= 768;
+        const advanceBy = isMobile ? 1 : 3;
+        showProjectSlide(currentProjectSlide + direction * advanceBy);
+        startProjectAutoSlide();
+    }
+
+    function startProjectAutoSlide() {
+        projectSlideInterval = setInterval(() => {
+            const isMobile = window.innerWidth <= 768;
+            const advanceBy = isMobile ? 1 : 3;
+            showProjectSlide(currentProjectSlide + advanceBy);
+        }, 8000); // Project slides rotate every 8 seconds
+    }
+
+    // Initialize sliders
+    showSlide(0);
+    startAutoSlide();
+    showProjectSlide(0);
+    startProjectAutoSlide();
+
+    // Pause auto-slide on hover
+    const slider = document.querySelector('.banner-slider');
+    slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    slider.addEventListener('mouseleave', startAutoSlide);
+
+    const projectSlider = document.querySelector('.project-slider');
+    projectSlider.addEventListener('mouseenter', () => clearInterval(projectSlideInterval));
+    projectSlider.addEventListener('mouseleave', startProjectAutoSlide);
+
+    // Intersection Observer for scroll-triggered fade-in animations
+    const fadeElements = document.querySelectorAll('.fade-in-section');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === "#" || href === "") return;
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Add keyboard navigation for slider
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            changeSlide(-1);
+        } else if (e.key === 'ArrowRight') {
+            changeSlide(1);
+        }
+    });
+
+    // Mobile menu toggle
+    function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('open');
+    }
+
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+
+<!-- Ensure hero and first elements are visible -->
+<style>
+    .hero-content.fade-in-section,
+    .feature-block .fade-in-section:first-child {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Smooth image loading */
+    img {
+        transition: opacity 0.3s ease;
+    }
+    
+    img[loading="lazy"] {
+        opacity: 0;
+    }
+    
+    img.loaded {
+        opacity: 1;
+    }
+</style>
+
+</body>
+</html>
