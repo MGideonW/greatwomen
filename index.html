@@ -452,6 +452,55 @@
             transition: all 0.25s;
         }
 
+        .service-card-image {
+            width: 100%;
+            height: 180px;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: inset 0 0 0 1px rgba(15, 74, 62, 0.08);
+            position: relative;
+            background: #f5f8f5;
+        }
+
+        .service-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-card-image img {
+            transform: scale(1.04);
+        }
+
+        .service-card-image.placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #eef6ee, #ffffff);
+        }
+
+        .service-card-image.placeholder .placeholder-graphic {
+            text-align: center;
+            color: #0f4a3e;
+        }
+
+        .service-card-image.placeholder .placeholder-graphic i {
+            font-size: 2.3rem;
+            margin-bottom: 0.8rem;
+            display: block;
+            color: #0f4a3e;
+        }
+
+        .service-card-image.placeholder .placeholder-graphic span {
+            display: inline-block;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
         .project-slider {
             position: relative;
             overflow: hidden;
@@ -1031,32 +1080,50 @@
                 <p class="section-subtitle"></p>
             </div>
             <div class="grid-3">
-                <div class="service-card fade-in-section">
+                        <div class="service-card fade-in-section">
+                    <div class="service-card-image">
+                        <img src="images/WhatsApp Image 2026-05-11 at 04.23.29.jpeg" alt="Skills development session">
+                    </div>
                     <div class="service-icon"><i class="fas fa-piggy-bank"></i></div>
                     <h3>Finance & Capital</h3>
                     <p>Lobby for startup capital, pool resource center, and access to funding beyond savings. Group savings and loaning schemes.</p>
                 </div>
                 <div class="service-card fade-in-section">
+                    <div class="service-card-image">
+                        <img src="images/WhatsApp Image 2026-04-08 at 17.30.28.jpeg" alt="Skills development session">
+                    </div>
                     <div class="service-icon"><i class="fas fa-tractor"></i></div>
                     <h3>Agribusiness</h3>
                     <p>Poultry, apiary, animal husbandry, vegetable farming, fish farming, and cash crops. Training on improved methods and seedlings.</p>
                 </div>
                 <div class="service-card fade-in-section">
+                    <div class="service-card-image">
+                        <img src="images/WhatsApp Image 2026-05-11 at 04.23.29 (1).jpeg" alt="Skills development session">
+                    </div>
                     <div class="service-icon"><i class="fas fa-gem"></i></div>
                     <h3>Skills & Industries</h3>
-                    <p>Tailoring, handcraft, salon, hairdressing, weaving, and value‑added product development. Tourism and cultural artisans.</p>
+                    <p>Tailoring, handcraft, salon, hairdressing, weaving, and value-added product development. Tourism and cultural artisans.</p>
                 </div>
                 <div class="service-card fade-in-section">
+                    <div class="service-card-image">
+                        <img src="images/WhatsApp Image 2026-05-11 at 04.23.30 (1).jpeg" alt="Health and rights outreach">
+                    </div>
                     <div class="service-icon"><i class="fas fa-tree"></i></div>
                     <h3>Environment & Conservation</h3>
                     <p>Tree planting, soil conservation, and environmental protection as a pillar of agricultural development.</p>
                 </div>
                 <div class="service-card fade-in-section">
+                    <div class="service-card-image">
+                        <img src="images/WhatsApp Image 2026-04-09 at 07.00.23.jpeg" alt="Health and rights outreach">
+                    </div>
                     <div class="service-icon"><i class="fas fa-shield-virus"></i></div>
                     <h3>Health & Rights</h3>
-                    <p>Sensitization on domestic violence, HIV/AIDS, COVID-19 prevention, and community-based support systems.</p>
+                    <p>Sensitisation on domestic violence, HIV/AIDS, COVID -19 plus other diseases that affects much of the communities for prevention and community based support systems.</p>
                 </div>
                 <div class="service-card fade-in-section">
+                    <div class="service-card-image">
+                        <img src="images/WhatsApp%20Image%202026-05-11%20at%2004.23.30.jpeg" alt="Mutual support and community care">
+                    </div>
                     <div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div>
                     <h3>Mutual Support</h3>
                     <p>Scheme for supporting members during bereavement or loss. Partnering with government agencies.</p>
@@ -1170,7 +1237,7 @@
             <div class="fade-in-section">
                 <h2 class="section-title">Why Women First?</h2>
                 <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #4a5568;">As the founder I am a woman. Women and girls are my first target Audience because they play a major role in the community, such as the rise of services of dealing with family issues. 
- However, many  women lack connections, knowledge, and support to launch their projects or sustain their business, which can empower them to achieve their dreams.</p>
+ However, many  women lack connections, knowledge, and support to launch their projects or sustain their business, which can empower them to achieve their dreams and to support the people around them.</p>
                 <div style="background: #f9fbf9; border-radius: 20px; padding: 1.5rem; border-left: 4px solid #e8a34b;">
                     <p style="font-style: italic;"><i class="fas fa-quote-left" style="color: #e8a34b; margin-right: 8px;"></i> We understand the challenging circumstances: inadequate services, illiteracy and poverty. Through compassion ,knowledge and skills, we  can reduce Poverty.</p>
                 </div>
@@ -1188,7 +1255,7 @@
                     </div>
                     <div>
                         <h4 style="color: #e8a34b; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Mission</h4>
-                        <p style="font-size: 1.3rem; font-weight: 500;">To empower women with the means to achieve middle-income status and enable them become self‑reliant both socially and economically.</p>
+                        <p style="font-size: 1.3rem; font-weight: 500;">To empower women with the means to achieve middle-income status and enable them become self-reliant both socially and economically.</p>
                     </div>
                 </div>
                 <div style="display: flex; align-items: center;">
@@ -1210,7 +1277,7 @@
                     </div>
                     <h3 style="font-size: 1.8rem;">Kim Clementine A</h3>
                     <p style="color: #0f4a3e; font-weight: 500; margin-bottom: 1rem;">Founder & Director</p>
-                    <p style="margin-top: 1rem; color: #4a5e55; font-size: 1.1rem;">"Empower a woman, sustain a generation. Together we build resilient communities through compassion, knowledge, skills and mutual support."</p>
+                    <p style="margin-top: 1rem; color: #4a5e55; font-size: 1.1rem;">"Empower a woman, sustain a generation. Together we build resilient communities through compassion, knowledge, skills and mutual support. Remember None Great Nation without a Great Woman"</p>
                     <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
                         <a href="#" style="color: #0f4a3e;"><i class="fab fa-linkedin fa-lg"></i></a>
                         <a href="#" style="color: #0f4a3e;"><i class="fab fa-twitter fa-lg"></i></a>
@@ -1227,15 +1294,15 @@
                     <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Join Our Movement</h2>
                     <p style="font-size: 1.2rem; opacity: 0.95; max-width: 550px; margin-bottom: 2rem;">Great Women Group offers opportunities to individuals who need support. Get in touch to learn more about our programs and how you can contribute.</p>
                     <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
-                        <a href="https://wa.me/256700123456" class="btn"><i class="fab fa-whatsapp" style="margin-right: 8px;" target="blank"></i> Chat on WhatsApp</a>
-                        <a href="#" class="btn btn-outline" style="background: transparent; color: white; border-color: white;">Send Message</a>
+                        <a href="https://wa.me/256700225620" class="btn"><i class="fab fa-whatsapp" style="margin-right: 8px;" target="blank"></i> Chat on WhatsApp</a>
+                        <a href="contact.html" class="btn btn-outline" style="background: transparent; color: white; border-color: white;">Send Message</a>
                     </div>
                 </div>
                 <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2);">
                     <i class="fas fa-envelope-open-text" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
                     <p style="font-weight: 600; font-size: 1.1rem;"><a href="mailto:greatwomengroup@community.org" style="color: inherit; text-decoration: none;">greatwomengroup@community.org</a></p>
                     <p style="margin-top: 1rem;"><i class="fas fa-map-pin"></i> Kampala, Uganda</p>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+256700123456" style="color: inherit; text-decoration: none;">+256 700 123 456</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:256700225620" style="color: inherit; text-decoration: none;">+256 700 225 620</a></p>
                 </div>
             </div>
         </section>
